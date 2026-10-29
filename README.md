@@ -5,7 +5,7 @@ The Mojogames Studio website. **The full site is being built in its own Claude c
 
 ## State when handed off (2026-10-28)
 
-A local starter only: nothing is a git repo, pushed or live yet.
+A starter site. Since 2026-10-28 it is a git repo pushed to GitHub with Pages on; it is live once the Porkbun DNS records are in.
 - `index.html`: minimal home page (logo, an Atlas of Wanderworlds card with a Play
   button linking to `atlas/`), dark pixel-star background, Silkscreen font. Checked at
   desktop and narrow widths. Replace or restyle freely.
@@ -25,7 +25,9 @@ A local starter only: nothing is a git repo, pushed or live yet.
 
 ## Still to do
 
-1. `git init`, create the public repo with `gh`, push, turn on Pages (main branch, root).
+1. ~~`git init`, create the public repo with `gh`, push, turn on Pages (main branch, root).~~
+   Done 2026-10-28: https://github.com/zagmojo/mojogamesstudio.com, Pages on (main, /),
+   custom domain mojogamesstudio.com from `CNAME`.
 2. DNS at Porkbun (the user enters these; leave the email-forwarding MX records alone):
    A records for `mojogamesstudio.com` to 185.199.108.153, 185.199.109.153,
    185.199.110.153, 185.199.111.153; CNAME `www` to `zagmojo.github.io`. Remove
