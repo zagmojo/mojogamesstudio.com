@@ -79,6 +79,34 @@ h1, h2 { font-family: var(--spray); text-transform: uppercase; font-weight: 400;
 .rows a:hover { background: var(--hazard); }
 .social { display: flex; flex-wrap: wrap; gap: 14px; }
 
+/* Press kit */
+.kit { width: min(860px, 100%); display: flex; flex-direction: column; gap: 28px; }
+.block { padding: 22px 24px 26px; }
+.block h1 { font-size: clamp(30px, 8vw, 44px); margin: 0 0 8px; }
+.block h2 { font-size: clamp(22px, 5vw, 28px); margin: 0 0 10px; }
+.block h3 { font-family: var(--spray); text-transform: uppercase; font-weight: 400; font-size: 18px; margin: 26px 0 10px; }
+.block p { font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
+.block .lead, .block .hook { color: var(--dim); }
+.block .hook { font-size: 15px; font-weight: 600; color: var(--ink); }
+.block a:not(.btn) { color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.block a:not(.btn):hover { background: var(--hazard); }
+.kit-logo { width: min(360px, 100%); height: auto; display: block; margin: -10px 0 6px; background: var(--ink); }
+.facts {
+  display: grid; grid-template-columns: max-content 1fr; gap: 0; margin: 16px 0;
+  border-top: 3px solid var(--ink); font-size: 13px;
+}
+.facts dt, .facts dd { margin: 0; padding: 9px 0; border-bottom: 3px solid var(--ink); }
+.facts dt { font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; padding-right: 18px; }
+@media (max-width: 520px) {
+  .facts { grid-template-columns: 1fr; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+}
+.features { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.7; }
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.shots img { width: 100%; height: auto; display: block; border: 3px solid var(--ink); }
+.files { margin: 0 0 16px; padding-left: 20px; font-size: 14px; line-height: 1.8; }
+.dl { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px !important; }
+
 /* Footer */
 footer {
   margin-top: auto; padding-top: 40px; font-size: 12px; font-weight: 600;
