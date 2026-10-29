@@ -5,7 +5,7 @@ The Mojogames Studio website. **The full site is being built in its own Claude c
 
 ## State when handed off (2026-10-28)
 
-A starter site. Since 2026-10-28 it is a git repo pushed to GitHub with Pages on; it is live once the Porkbun DNS records are in.
+A starter site, LIVE since 2026-10-28 at https://mojogamesstudio.com (GitHub Pages, HTTPS enforced, DNS at Porkbun: four A records plus www CNAME; email MX and TXT untouched). Pull before editing: GitHub may add commits (e.g. when the custom domain is re-saved).
 - `index.html`: minimal home page (logo, an Atlas of Wanderworlds card with a Play
   button linking to `atlas/`), dark pixel-star background, Silkscreen font. Checked at
   desktop and narrow widths. Replace or restyle freely.
@@ -28,11 +28,12 @@ A starter site. Since 2026-10-28 it is a git repo pushed to GitHub with Pages on
 1. ~~`git init`, create the public repo with `gh`, push, turn on Pages (main branch, root).~~
    Done 2026-10-28: https://github.com/zagmojo/mojogamesstudio.com, Pages on (main, /),
    custom domain mojogamesstudio.com from `CNAME`.
-2. DNS at Porkbun (the user enters these; leave the email-forwarding MX records alone):
+2. (Done 2026-10-28.) DNS at Porkbun (the user enters these; leave the email-forwarding MX records alone):
    A records for `mojogamesstudio.com` to 185.199.108.153, 185.199.109.153,
    185.199.110.153, 185.199.111.153; CNAME `www` to `zagmojo.github.io`. Remove
    Porkbun's default parking records for the root and `www` if present.
-3. Once GitHub shows the certificate, turn on "Enforce HTTPS".
+3. (Done 2026-10-28.) Once GitHub shows the certificate, turn on "Enforce HTTPS".
+4. Next: the rest of the site (Knaights, HAMB, Protorogo, press kit, contact), built in the business chat.
 
 ## The Atlas build (contract with the Atlas chat)
 
