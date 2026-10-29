@@ -28,13 +28,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet; then
+          git add -A index.html img/steam
+          if git diff --cached --quiet; then
             echo "Nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update Steam header images"
+          git commit -m "Update Steam header images"
           git pull --rebase
           git push
           gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
