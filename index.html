@@ -31,14 +31,17 @@
     background-image: url("img/concrete.svg");
     background-size: 640px 640px;
   }
+  .brand { position: relative; width: min(620px, 100%); margin: 0 0 48px; }
   .logo {
-    width: min(620px, 100%); height: auto; margin: 0 0 8px;
+    width: 100%; height: auto; display: block;
     filter: drop-shadow(2px 3px 0 rgba(0,0,0,.35));
   }
+  /* "Studio" sits low and to the right, overlapping the logo. */
   .tag {
+    position: absolute; right: 0; bottom: -18px;
     font-family: "Rubik Spray Paint", sans-serif; text-transform: uppercase; letter-spacing: .08em;
-    font-size: 13px; background: var(--ink); color: var(--paper);
-    padding: 6px 12px; margin: 0 0 36px;
+    font-size: clamp(22px, 6.5vw, 39px); line-height: 1;
+    background: var(--ink); color: var(--paper); padding: 8px 18px;
   }
   .games {
     display: grid; gap: 28px; width: min(1000px, 100%);
@@ -78,8 +81,10 @@
 </style>
 </head>
 <body>
-<img class="logo" src="img/mojogames-logo.png" alt="Mojogames" width="900" height="375">
-<div class="tag">Independent game studio</div>
+<header class="brand">
+  <img class="logo" src="img/mojogames-logo.png" alt="Mojogames" width="900" height="375">
+  <div class="tag">Studio</div>
+</header>
 <main class="games">
   <section class="game">
     <div class="art"><img src="img/hamb-header.png" alt="Hyper Arcane Mage Battle" width="920" height="430"></div>
