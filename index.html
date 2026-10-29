@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mojogames Studio</title>
-<meta name="description" content="Mojogames Studio. Play Atlas of Wanderworlds free in your browser, on phones too.">
+<meta name="description" content="Mojogames Studio, an indie game studio. Hyper Arcane Mage Battle and Knaights on Steam, and Atlas of Wanderworlds free in your browser.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,14 +37,21 @@
     image-rendering: pixelated; z-index: -1;
   }
   .logo { width: min(640px, 100%); height: auto; margin: 8px 0 24px; }
-  .game {
-    display: flex; gap: 20px; align-items: center;
-    background: var(--panel); border: 3px solid #000; outline: 2px solid var(--border);
-    padding: 18px; width: min(560px, 100%);
+  .games {
+    display: grid; gap: 24px; width: min(980px, 100%);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
-  .game img { width: 112px; height: 112px; image-rendering: pixelated; flex: none; }
-  .game h1 { font-size: 22px; margin: 0 0 6px; font-weight: 400; line-height: 1.1; }
-  .game p { margin: 0 0 14px; color: var(--dim); font-size: 13px; line-height: 1.5; }
+  .game {
+    display: flex; flex-direction: column;
+    background: var(--panel); border: 3px solid #000; outline: 2px solid var(--border);
+  }
+  .art { aspect-ratio: 460 / 215; background: #05040f; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .art img.icon { width: 112px; height: 112px; object-fit: contain; image-rendering: pixelated; }
+  .info { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+  .game h2 { font-size: 20px; margin: 0 0 6px; font-weight: 400; line-height: 1.1; }
+  .game p { margin: 0 0 14px; color: var(--dim); font-size: 13px; line-height: 1.5; flex: 1; }
+  .play { align-self: flex-start; }
   .play {
     display: inline-block; text-decoration: none; color: #1a0f08;
     background: var(--play); border: 3px solid #000; padding: 8px 22px;
@@ -53,22 +60,37 @@
   }
   .play:hover, .play:focus-visible { background: #f2c6a0; }
   footer { margin-top: auto; padding-top: 32px; color: var(--dim); font-size: 11px; }
-  @media (max-width: 600px) {
-    .game { flex-direction: column; text-align: center; }
-  }
 </style>
 </head>
 <body>
 <canvas id="stars"></canvas>
 <img class="logo" src="img/mojogames-logo.png" alt="Mojogames" width="900" height="375">
-<section class="game">
-  <img src="img/atlas-icon.png" alt="" width="112" height="112">
-  <div>
-    <h1>Atlas of Wanderworlds</h1>
-    <p>Free to play in your browser, on phones too. Early prototype.</p>
-    <a class="play" href="atlas/">Play</a>
-  </div>
-</section>
+<main class="games">
+  <section class="game">
+    <div class="art"><img src="img/hamb-header.png" alt="Hyper Arcane Mage Battle" width="920" height="430"></div>
+    <div class="info">
+      <h2>Hyper Arcane Mage Battle</h2>
+      <p>A mage platform battler for up to 8 players, local or online. Earn spell cards and build between rounds.</p>
+      <a class="play" href="https://store.steampowered.com/app/5489090/" target="_blank" rel="noopener">Wishlist on Steam</a>
+    </div>
+  </section>
+  <section class="game">
+    <div class="art"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4776920/529dc36eeff13514f065862e34fd3f00611b1440/header.jpg" alt="Knaights" width="460" height="215"></div>
+    <div class="info">
+      <h2>Knaights</h2>
+      <p>Turn-based medieval strategy where both sides move at once. Play the AI, hotseat or online.</p>
+      <a class="play" href="https://store.steampowered.com/app/4776920/" target="_blank" rel="noopener">Get it on Steam</a>
+    </div>
+  </section>
+  <section class="game">
+    <div class="art"><img class="icon" src="img/atlas-icon.png" alt="" width="112" height="112"></div>
+    <div class="info">
+      <h2>Atlas of Wanderworlds</h2>
+      <p>Free to play in your browser, on phones too. Early prototype.</p>
+      <a class="play" href="atlas/">Play</a>
+    </div>
+  </section>
+</main>
 <footer>&copy; 2026 Mojogames Studio</footer>
 <script>
   // Dim single-pixel stars with slight rainbow tints and a few bright ones,
