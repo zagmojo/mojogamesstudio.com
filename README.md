@@ -37,7 +37,9 @@ A starter site, LIVE since 2026-10-28 at https://mojogamesstudio.com (GitHub Pag
    - Home page lists HAMB, Knaights and Protorogo (Steam links) and Atlas.
    - `contact.html` (email forwards plus YouTube and Instagram).
    - Shared styles in `css/site.css`.
-   Next: press kit page.
+   - `presskit.html` (2026-10-28): studio plus HAMB facts, about, features, screenshots and art, with a zip at `presskit/hamb-press-kit.zip`. The assets are copies from `HyperArcaneMageBattle/art/steam`; rebuild the zip if they change.
+
+   Next: Knaights and Protorogo sections in the press kit; add the site URL to each game's Steamworks website field.
 
 ## Steam images (automatic)
 
