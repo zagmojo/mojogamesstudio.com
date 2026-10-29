@@ -1,0 +1,88 @@
+/* Mojogames Studio site styles: concrete, black ink, hazard yellow, spray-paint headings. */
+:root {
+  --concrete: #a3a19c;
+  --ink: #111111;
+  --paper: #ecebe7;
+  --dim: #3d3b38;
+  --hazard: #ffd21f;
+  --spray: "Rubik Spray Paint", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  min-height: 100vh;
+  padding: 32px 16px;
+  display: flex; flex-direction: column; align-items: center;
+  background-color: var(--concrete);
+  /* Smooth close-up concrete: light relief, grain, aggregate flecks, stains. */
+  background-image: url("../img/concrete.svg");
+  background-size: 640px 640px;
+}
+
+/* Logo with the "Studio" sticker low and to the right, overlapping it. */
+.brand { position: relative; display: block; width: min(620px, 100%); margin: 0 0 48px; }
+.brand.small { width: min(380px, 80%); margin-bottom: 40px; }
+.logo { width: 100%; height: auto; display: block; filter: drop-shadow(2px 3px 0 rgba(0,0,0,.35)); }
+.tag {
+  position: absolute; right: 0; bottom: -18px;
+  font-family: var(--spray); text-transform: uppercase; letter-spacing: .08em;
+  font-size: clamp(22px, 6.5vw, 39px); line-height: 1;
+  background: var(--ink); color: var(--paper); padding: 8px 18px;
+  transform: rotate(-4deg); box-shadow: 3px 4px 0 rgba(0,0,0,.3);
+}
+.brand.small .tag { font-size: clamp(16px, 4.5vw, 24px); padding: 6px 12px; bottom: -12px; }
+
+/* Panels */
+.panel { background: var(--paper); border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+h1, h2 { font-family: var(--spray); text-transform: uppercase; font-weight: 400; line-height: 1.05; }
+
+/* Game cards (home) */
+.games { display: grid; gap: 28px; width: min(1000px, 100%); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+@media (min-width: 700px) { .games { grid-template-columns: repeat(2, 1fr); } }
+.game { display: flex; flex-direction: column; }
+.art {
+  aspect-ratio: 460 / 215; border-bottom: 4px solid var(--ink); overflow: hidden;
+  display: flex; align-items: center; justify-content: center; background: var(--ink);
+}
+.art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.art.atlas { background: #05040f; }
+.art img.icon { width: 112px; height: 112px; object-fit: contain; image-rendering: pixelated; }
+.info { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+.game h2 { font-size: 21px; margin: 0 0 10px; }
+.game p { margin: 0 0 18px; color: var(--dim); font-size: 13px; line-height: 1.55; flex: 1; }
+
+/* Buttons */
+.btn {
+  display: inline-block; align-self: flex-start; text-decoration: none;
+  font-family: var(--spray); text-transform: uppercase; letter-spacing: .04em; font-size: 14px;
+  color: var(--ink); background: var(--hazard); border: 3px solid var(--ink);
+  padding: 10px 16px; box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .08s, box-shadow .08s;
+}
+.btn:hover, .btn:focus-visible { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+
+/* Contact page */
+.contact { width: min(640px, 100%); padding: 22px 24px 26px; }
+.contact h1 { font-size: clamp(30px, 8vw, 44px); margin: 0 0 6px; }
+.contact .lead { margin: 0 0 22px; color: var(--dim); font-size: 14px; line-height: 1.55; }
+.contact h2 { font-size: 20px; margin: 26px 0 12px; }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--ink); }
+.rows li {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px;
+  padding: 12px 0; border-bottom: 3px solid var(--ink);
+}
+.rows .what { font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: .06em; }
+.rows a { color: var(--ink); font-size: 14px; word-break: break-all; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.rows a:hover { background: var(--hazard); }
+.social { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Footer */
+footer {
+  margin-top: auto; padding-top: 40px; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .1em; text-align: center;
+}
+footer nav { margin-bottom: 8px; display: flex; gap: 18px; justify-content: center; }
+footer a { color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 3px; }

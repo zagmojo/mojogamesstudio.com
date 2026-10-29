@@ -4,82 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mojogames Studio</title>
-<meta name="description" content="Mojogames Studio, an indie game studio. Hyper Arcane Mage Battle and Knaights on Steam, and Atlas of Wanderworlds free in your browser.">
+<meta name="description" content="Mojogames Studio, an indie game studio. Hyper Arcane Mage Battle, Knaights and Protorogo on Steam, and Atlas of Wanderworlds free in your browser.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --concrete: #a3a19c;
-    --concrete-dark: #8c8a85;
-    --ink: #111111;
-    --paper: #ecebe7;
-    --dim: #3d3b38;
-    --hazard: #ffd21f;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; min-height: 100%; }
-  body {
-    color: var(--ink);
-    font-family: "IBM Plex Mono", monospace;
-    min-height: 100vh;
-    padding: 32px 16px;
-    display: flex; flex-direction: column; align-items: center;
-    background-color: var(--concrete);
-    /* Smooth close-up concrete: light relief, grain, aggregate flecks, stains. */
-    background-image: url("img/concrete.svg");
-    background-size: 640px 640px;
-  }
-  .brand { position: relative; width: min(620px, 100%); margin: 0 0 48px; }
-  .logo {
-    width: 100%; height: auto; display: block;
-    filter: drop-shadow(2px 3px 0 rgba(0,0,0,.35));
-  }
-  /* "Studio" sits low and to the right, overlapping the logo. */
-  .tag {
-    position: absolute; right: 0; bottom: -18px;
-    font-family: "Rubik Spray Paint", sans-serif; text-transform: uppercase; letter-spacing: .08em;
-    font-size: clamp(22px, 6.5vw, 39px); line-height: 1;
-    background: var(--ink); color: var(--paper); padding: 8px 18px;
-    transform: rotate(-4deg); box-shadow: 3px 4px 0 rgba(0,0,0,.3);
-  }
-  .games {
-    display: grid; gap: 28px; width: min(1000px, 100%);
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  }
-  .game {
-    display: flex; flex-direction: column;
-    background: var(--paper); border: 4px solid var(--ink);
-    box-shadow: 8px 8px 0 var(--ink);
-  }
-  .art {
-    aspect-ratio: 460 / 215; border-bottom: 4px solid var(--ink); overflow: hidden;
-    display: flex; align-items: center; justify-content: center; background: var(--ink);
-  }
-  .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .art.atlas { background: #05040f; }
-  .art img.icon { width: 112px; height: 112px; object-fit: contain; image-rendering: pixelated; }
-  .info { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-  .game h2 {
-    font-family: "Rubik Spray Paint", sans-serif; text-transform: uppercase;
-    font-size: 21px; line-height: 1.05; margin: 0 0 10px; font-weight: 400;
-  }
-  .game p { margin: 0 0 18px; color: var(--dim); font-size: 13px; line-height: 1.55; flex: 1; }
-  .btn {
-    align-self: flex-start; text-decoration: none;
-    font-family: "Rubik Spray Paint", sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: 14px;
-    color: var(--ink); background: var(--hazard); border: 3px solid var(--ink);
-    padding: 10px 16px; box-shadow: 4px 4px 0 var(--ink);
-    transition: transform .08s, box-shadow .08s;
-  }
-  .btn:hover, .btn:focus-visible { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
-  .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
-  footer {
-    margin-top: auto; padding-top: 40px; font-size: 12px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: .1em; color: var(--ink);
-  }
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header class="brand">
@@ -87,7 +17,7 @@
   <div class="tag">Studio</div>
 </header>
 <main class="games">
-  <section class="game">
+  <section class="game panel">
     <div class="art"><img src="img/hamb-header.png" alt="Hyper Arcane Mage Battle" width="920" height="430"></div>
     <div class="info">
       <h2>Hyper Arcane Mage Battle</h2>
@@ -95,7 +25,7 @@
       <a class="btn" href="https://store.steampowered.com/app/5489090/" target="_blank" rel="noopener">Wishlist on Steam</a>
     </div>
   </section>
-  <section class="game">
+  <section class="game panel">
     <div class="art"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4776920/529dc36eeff13514f065862e34fd3f00611b1440/header.jpg" alt="Knaights" width="460" height="215"></div>
     <div class="info">
       <h2>Knaights</h2>
@@ -103,15 +33,26 @@
       <a class="btn" href="https://store.steampowered.com/app/4776920/" target="_blank" rel="noopener">Get it on Steam</a>
     </div>
   </section>
-  <section class="game">
+  <section class="game panel">
+    <div class="art"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3803650/934b405b46898c0970b2bb65f79d86057ae38011/header.jpg" alt="Protorogo" width="460" height="215"></div>
+    <div class="info">
+      <h2>Protorogo</h2>
+      <p>An idle roguelite about ability synergies and strategy, against harder and harder waves of enemies.</p>
+      <a class="btn" href="https://store.steampowered.com/app/3803650/" target="_blank" rel="noopener">Get it on Steam</a>
+    </div>
+  </section>
+  <section class="game panel">
     <div class="art atlas"><img class="icon" src="img/atlas-icon.png" alt="" width="112" height="112"></div>
     <div class="info">
       <h2>Atlas of Wanderworlds</h2>
-      <p>Free to play in your browser, on phones too. Early prototype.</p>
+      <p>Free to play on mobile, desktop, or any device.</p>
       <a class="btn" href="atlas/">Play</a>
     </div>
   </section>
 </main>
-<footer>&copy; 2026 Mojogames Studio</footer>
+<footer>
+  <nav><a href="./">Games</a><a href="contact.html">Contact</a></nav>
+  &copy; 2026 Mojogames Studio
+</footer>
 </body>
 </html>
