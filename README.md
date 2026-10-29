@@ -39,6 +39,14 @@ A starter site, LIVE since 2026-10-28 at https://mojogamesstudio.com (GitHub Pag
    - Shared styles in `css/site.css`.
    Next: press kit page.
 
+## Steam images (automatic)
+
+The HAMB, Knaights and Protorogo cards use each game's current Steam header image.
+Steam changes the image URL whenever a new header is uploaded, so the "Steam images"
+GitHub Action (`.github/workflows/steam-images.yml`) runs `tools/update_steam_images.py`
+every 6 hours (or on demand from the Actions tab) and commits new URLs when they change.
+Because that bot can commit to `main`, always `git pull` before pushing from a local copy.
+
 ## The Atlas build (contract with the Atlas chat)
 
 - The game lives in `atlas/` and must be served as-is (no build step, no renaming).
