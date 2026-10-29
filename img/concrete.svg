@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <defs>
+    <!-- Surface relief: lit noise gives the uneven, troweled face of a slab. -->
+    <filter id="relief" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="6" seed="11" stitchTiles="stitch" result="n"/>
+      <feDiffuseLighting in="n" lighting-color="#ffffff" surfaceScale="3" result="lit">
+        <feDistantLight azimuth="225" elevation="55"/>
+      </feDiffuseLighting>
+      <feColorMatrix in="lit" type="saturate" values="0"/>
+    </filter>
+    <!-- Fine sand grain. -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="4" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -1.1 0 0 0 0.62"/>
+    </filter>
+    <!-- Light flecks of aggregate. -->
+    <filter id="flecks" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="1" seed="21" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1 0 0 0 0"/>
+      <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0.55"/></feComponentTransfer>
+    </filter>
+    <!-- Air pockets (bug holes): small dark pits with a light lip. -->
+    <filter id="pores" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="2" seed="8" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0.16  0 0 0 0 0.155  0 0 0 0 0.15  -1 0 0 0 1"/>
+      <feComponentTransfer result="holes"><feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.95"/></feComponentTransfer>
+      <feOffset in="holes" dx="0.8" dy="0.8" result="lip0"/>
+      <feColorMatrix in="lip0" values="0 0 0 0 0.85  0 0 0 0 0.84  0 0 0 0 0.82  0 0 0 0.5 0" result="lip"/>
+      <feMerge><feMergeNode in="lip"/><feMergeNode in="holes"/></feMerge>
+    </filter>
+    <!-- Broad cloudy staining. -->
+    <filter id="stain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0.25  0 0 0 0 0.24  0 0 0 0 0.22  1.4 0 0 0 -0.55"/>
+    </filter>
+  </defs>
+  <rect width="640" height="640" fill="#a19f99"/>
+  <rect width="640" height="640" filter="url(#relief)" opacity="0.42" style="mix-blend-mode:multiply"/>
+  <rect width="640" height="640" filter="url(#stain)" opacity="0.5"/>
+  <rect width="640" height="640" filter="url(#grain)" opacity="0.5"/>
+  <rect width="640" height="640" filter="url(#flecks)" opacity="0.5"/>
+  <rect width="640" height="640" filter="url(#pores)"/>
+</svg>
