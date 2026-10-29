@@ -33,7 +33,11 @@ A starter site, LIVE since 2026-10-28 at https://mojogamesstudio.com (GitHub Pag
    185.199.110.153, 185.199.111.153; CNAME `www` to `zagmojo.github.io`. Remove
    Porkbun's default parking records for the root and `www` if present.
 3. (Done 2026-10-28.) Once GitHub shows the certificate, turn on "Enforce HTTPS".
-4. Next: the rest of the site (Knaights, HAMB, Protorogo, press kit, contact), built in the business chat.
+4. Done 2026-10-28:
+   - Home page lists HAMB, Knaights and Protorogo (Steam links) and Atlas.
+   - `contact.html` (email forwards plus YouTube and Instagram).
+   - Shared styles in `css/site.css`.
+   Next: press kit page.
 
 ## The Atlas build (contract with the Atlas chat)
 
