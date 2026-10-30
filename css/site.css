@@ -91,6 +91,23 @@ h1, h2 { font-family: var(--spray); text-transform: uppercase; font-weight: 400;
 .rows a:hover { background: var(--hazard); }
 .social { display: flex; flex-wrap: wrap; gap: 14px; }
 
+/* FAQ: one ruled row per question, tap to open. */
+.faq a:not(.btn) { color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.faq a:not(.btn):hover { background: var(--hazard); }
+.faq details { border-bottom: 3px solid var(--ink); }
+.faq .lead + details { border-top: 3px solid var(--ink); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 12px 28px 12px 0; position: relative;
+  font-weight: 600; font-size: 14px; line-height: 1.45;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 10px; font-size: 18px; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:hover { background: var(--hazard); }
+.faq details p, .faq details ul { margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: var(--dim); }
+.faq details ul { padding-left: 20px; }
+.faq .more { margin: 22px 0 0; font-size: 14px; }
+
 /* Press kit */
 .kit { width: min(860px, 100%); display: flex; flex-direction: column; gap: 28px; }
 .block { padding: 22px 24px 26px; }
@@ -124,5 +141,5 @@ footer {
   margin-top: auto; padding-top: 40px; font-size: 12px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .1em; text-align: center;
 }
-footer nav { margin-bottom: 8px; display: flex; gap: 18px; justify-content: center; }
+footer nav { margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; }
 footer a { color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 3px; }
