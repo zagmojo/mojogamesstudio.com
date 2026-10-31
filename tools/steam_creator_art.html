@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- Renders the Steam creator page art from the site's own pieces.
+     ?avatar  -> 512x512 logo tile (group avatar)
+     ?banner  -> 1500x220 concrete strip (creator page background)
+     Render with tools/render_steam_creator_art.ps1. -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; overflow: hidden; }
+body { background: #a3a19c url("../img/concrete.svg"); background-size: 640px 640px; }
+.avatar { width: 512px; height: 512px; display: flex; align-items: center; justify-content: center; }
+.brand { position: relative; width: 460px; }
+.brand img { width: 100%; display: block; filter: drop-shadow(2px 3px 0 rgba(0,0,0,.35)); }
+.tag {
+  position: absolute; right: 0; bottom: -26px;
+  font-family: "Rubik Spray Paint", sans-serif; text-transform: uppercase; letter-spacing: .08em;
+  font-size: 44px; line-height: 1; background: #111; color: #ecebe7; padding: 8px 18px;
+  transform: rotate(-4deg); box-shadow: 3px 4px 0 rgba(0,0,0,.3);
+}
+.banner { width: 1500px; height: 220px; }
+</style></head>
+<body>
+<script>
+if (location.search.includes('avatar')) {
+  document.body.innerHTML = '<div class="avatar"><div class="brand"><img src="../img/mojogames-logo.png" alt=""><div class="tag">Studio</div></div></div>';
+} else {
+  document.body.innerHTML = '<div class="banner"></div>';
+}
+</script>
+</body></html>
