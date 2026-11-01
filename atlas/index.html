@@ -122,9 +122,83 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":1170852,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":1173348,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
+
+// Graphics debugging (?gldebug=1; user report 2026-11-01: Windows browsers lost the
+// graphics entering a world): remembers the last graphics calls, the biggest buffers and
+// textures made, and prints them when the graphics are lost.
+if (new URLSearchParams(location.search).get('gldebug')) {
+	const recent = [];
+	const big = [];
+	const realGet = HTMLCanvasElement.prototype.getContext;
+	HTMLCanvasElement.prototype.getContext = function (kind, attrs) {
+		const ctx = realGet.call(this, kind, attrs);
+		if (!ctx || ctx.__wrapped || !(kind === 'webgl2' || kind === 'webgl')) {
+			return ctx;
+		}
+		ctx.__wrapped = true;
+		const proto = Object.getPrototypeOf(ctx);
+		for (const name of Object.getOwnPropertyNames(proto)) {
+			const d = Object.getOwnPropertyDescriptor(proto, name);
+			if (!d || typeof d.value !== 'function' || name === 'getError') {
+				continue;
+			}
+			const real = d.value;
+			ctx[name] = function (...a) {
+				const brief = a.map((x) => (typeof x === 'number' ? x : (x && x.byteLength !== undefined ? 'bytes:' + x.byteLength : typeof x))).join(',');
+				recent.push(name + '(' + brief + ')');
+				if (recent.length > 60) {
+					recent.shift();
+				}
+				if (/bufferData|texImage2D|texImage3D|texStorage|renderbufferStorage/.test(name)) {
+					let sz = 0;
+					if (name === 'bufferData') {
+						sz = typeof a[1] === 'number' ? a[1] : (typeof a[4] === 'number' ? a[4] : (a[1] ? a[1].byteLength : 0));
+					} else if (name === 'texImage2D' || name === 'texStorage2D') {
+						sz = (name === 'texStorage2D' ? a[3] * a[4] : a[3] * a[4]) * 4;
+					} else if (name === 'texImage3D' || name === 'texStorage3D') {
+						sz = a[3] * a[4] * a[5] * 4;
+					} else if (name.startsWith('renderbufferStorage')) {
+						sz = a[a.length - 2] * a[a.length - 1] * 4;
+					}
+					big.push([sz, name + '(' + a.slice(0, 6).map((x) => (typeof x === 'number' ? x : typeof x)).join(',') + ') at ' + recent.length]);
+					if (sz > 4000000) {
+						console.warn('GLDEBUG big allocation: ' + sz + ' ' + name + '(' + a.slice(0, 6).map((x) => (typeof x === 'number' ? x : typeof x)).join(',') + ')');
+					}
+					big.sort((p, q) => q[0] - p[0]);
+					big.length = Math.min(big.length, 15);
+				}
+				if (name === 'shaderSource') {
+					a[0].__src = a[1];
+				}
+				const r = real.apply(this, a);
+				if (name === 'linkProgram' && !ctx.isContextLost()) {
+					window.__links = window.__links || [];
+					window.__links.push({ok: ctx.getProgramParameter(a[0], ctx.LINK_STATUS), log: ctx.getProgramInfoLog(a[0]), at: performance.now(), n: (window.__shaders || []).length});
+				}
+				if (name === 'compileShader' && !ctx.isContextLost()) {
+					const ok = ctx.getShaderParameter(a[0], ctx.COMPILE_STATUS);
+					window.__shaders = window.__shaders || [];
+					window.__shaders.push({ok: ok, src: a[0].__src, log: ctx.getShaderInfoLog(a[0]), at: performance.now()});
+				}
+				if (name === 'drawArrays' || name === 'drawElements' || name === 'drawArraysInstanced' || name === 'drawElementsInstanced') {
+					const e = ctx.isContextLost() ? 'LOST' : '';
+					if (e) {
+						recent.push('^ lost after this');
+					}
+				}
+				return r;
+			};
+		}
+		this.addEventListener('webglcontextlost', () => {
+			console.error('GLDEBUG lost; last calls:\n' + recent.join('\n'));
+			console.error('GLDEBUG biggest allocations:\n' + big.map((b) => b[0] + ' ' + b[1]).join('\n'));
+		});
+		return ctx;
+	};
+}
 
 (function () {
 	const SPIN_FRAMES = 48, SPIN_COLS = 8, SPIN_PX = 192, SPIN_S = 8;
@@ -222,7 +296,11 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
+		// Test switches from the address (?args=--solo+--seed=5): passed to the game like
+		// command-line test hooks (scenes/main.gd), for checking a browser's trouble.
+		const testArgs = new URLSearchParams(location.search).get('args');
 		engine.startGame({
+			'args': testArgs ? ['--'].concat(testArgs.split(' ').filter((a) => a.startsWith('--'))) : [],
 			'onProgress': function (current, total) {
 				if (current > 0 && total > 0) {
 					statusProgress.value = current;
