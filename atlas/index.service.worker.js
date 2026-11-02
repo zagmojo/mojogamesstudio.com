@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1793636769|8935800';
+const CACHE_VERSION = '1793641304|9046511';
 /** @type {string} */
 const CACHE_PREFIX = 'Atlas of Wanderw-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
