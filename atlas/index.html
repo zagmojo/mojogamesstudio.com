@@ -120,9 +120,37 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
+		<script>
+// Sound that stops mid-game (user, 2026-11-04): a browser suspends the page's audio (Chrome
+// with the tab in the background) or interrupts it (Safari: a call, the lock screen, another
+// app's sound), and it doesn't always come back by itself. Every audio context the engine
+// makes is kept here; on the next tap, click or key, and when the page shows again, any one
+// not running is resumed (a browser lets audio start only after a gesture). The game asks
+// window.atlasAudioState() how they stand and logs it (core/sfx.gd).
+(function () {
+	var Orig = window.AudioContext || window.webkitAudioContext;
+	if (!Orig) { return; }
+	var ctxs = [];
+	function Kept(opts) { var c = new Orig(opts); ctxs.push(c); return c; }
+	Kept.prototype = Orig.prototype;
+	window.AudioContext = Kept;
+	if (window.webkitAudioContext) { window.webkitAudioContext = Kept; }
+	function resume() {
+		ctxs.forEach(function (c) {
+			if (c.state !== 'running' && c.state !== 'closed') { c.resume().catch(function () {}); }
+		});
+	}
+	['pointerdown', 'pointerup', 'touchend', 'mousedown', 'keydown'].forEach(function (t) {
+		window.addEventListener(t, resume, {capture: true, passive: true});
+	});
+	document.addEventListener('visibilitychange', function () { if (!document.hidden) { resume(); } });
+	window.addEventListener('focus', resume);
+	window.atlasAudioState = function () { return ctxs.map(function (c) { return c.state; }).join(',') || 'none'; };
+})();
+		</script>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":2003364,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":2045416,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
