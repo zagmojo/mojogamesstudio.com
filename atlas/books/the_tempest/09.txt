@@ -1,0 +1,137 @@
+I. 2. 377, 378:
+
+Courtsied when you have and kiss'd
+The wild waves whist.
+
+This punctuation seems to be supported by what Ferdinand says (391, 392):
+
+'The music crept by me upon the waters,
+Allaying both their fury and my passion, andc.'
+
+At the end of the stanza we have printed Hark, hark! ... The watch-dogs bark as that part of the burthen which 'sweet sprites bear.' The other part is borne by distant watch-dogs.
+
+NOTE VI.
+
+I. 2. 443. I fear you have done yourself some wrong. See this phrase used in a similar sense, Measure for Measure, I. 11. 39.
+
+NOTE VII.
+
+II. 1. 27. Which, of he or Adrian. 'Of' is found in the same construction, Midsummer Night's Dream, III. 2. 336,
+
+'Now follow if thou darest to try whose right,
+Of thine or mine, is most in Helena.'
+
+NOTE VIII.
+
+II. 1. 157. Of its own kind. There is no doubt, as Dr Guest has shewn, that 'it,' which is the reading of the 1st and 2nd folios, was commonly used as a genitive in Shakespeare's time, as it is still in some provincial dialects. 'Its,' however, was coming into use. One instance occurs in this play, I. 11. 95, 'in its contrary.'
+
+NOTE IX.
+
+II. 1. 241. she that from whom. Mr Spedding writes: 'The received emendation is not satisfactory to me. I would rather read, "She that--From whom? All were sea-swallow'd andc., i.e. from whom should she have note? The report from Naples will be that all were drowned. We shall be the only survivors." The break in the construction seems to me characteristic of the speaker. But you must read the whole speech to feel the effect.'
+
+NOTE X.
+
+II. 1. 249-251. All editors except Mr Staunton have printed in italics (or between inverted commas) only as far as 'Naples?', but as 'keep' is printed with a small k in the folios, they seem to sanction the arrangement given in our text.
+
+NOTE XI.
+
+II. 1. 267. Ay, sir; where lies that? if 'twere a kibe. Mr Singer and Mr Dyce have changed ''twere' to 'it were' for the sake of the metre. But then the first part of the line must be read with a wrong emphasis. The proper emphasis clearly falls on the first, third, and fifth syllables, 'Ay, sir; where lies that?' See Preface.
+
+NOTE XII.
+
+II. 2. 165. Before 'here; bear my bottle' Capell inserts a stage direction [To Cal.], but it appears from III. 2. 62, that Trinculo was entrusted with the office of bottle-bearer.
+
+NOTE XIII.
+
+III. 1. 15. Most busy lest, when I do it. As none of the proposed emendations can be regarded as certain, we have left the reading of F1, though it is manifestly corrupt. The spelling 'doe' makes Mr Spedding's conjecture 'idlest' for 'I doe it' more probable.
+
+NOTE XIV.
+
+III. 3. 17. The stage direction, which we have divided into two parts, is placed all at once in the folios after 'as when they are fresh' [Solemne and strange Musicke; and Prosper on the top (invisible:) Enter ... depart].
+
+Pope transferred it to follow Sebastian's words, 'I say, to night: no more.'
+
+NOTE XV.
+
+III. 3. 48. Each putter out of five for one. See Beaumont and Fletcher, The Noble Gentleman, I. 1. (Vol. II. p. 261, ed. Moxon): 'The return will give you five for one.' MARINE is about to travel.
+
+NOTE XVI.
+
+IV. 1. 146. You do look, my son, in a moved sort. Seymour suggests a transposition: 'you do, my son, look in a moved sort.' This line however can scarcely have come from Shakespeare's pen. Perhaps the writer who composed the Masque was allowed to join it, as best he might, to Shakespeare's words, which re-commence at 'Our revels now are ended,' andc.
+
+NOTE XVII.
+
+IV. 1. 230. Let's alone. See Staunton's "Shakespeare," Vol. I. p. 81, note (b).
+
+NOTE XVIII.
+
+V. 1. 309. Of these our dear-beloved solemnized. The Folios have 'belov'd'; a mode of spelling, which in this case is convenient as indicating the probable rhythm of the verse. We have written 'beloved,' in accordance with the general rule mentioned in the Preface.
+
+'Solemnized' occurs in four other verse passages of Shakespeare. It is three times to be accented 'solemnized' and once (Love's Labour's Lost, II. 1. 41) 'solemnized.'
+
+* * * * *
+* * * *
+* * * * *
+
+Sources:
+
+The editors' Preface (e-text 23041) discusses the 17th- and 18th-century editions in detail; the newer (19th-century) editions are simply listed by name. The following editions may appear in the Notes. All inset text is quoted from the Preface.
+
+Folios:
+F1 1623; F2 (no date given); F3 1663; F4 1685.
+"The five plays contained in this volume occur in the first Folio
+in the same order, and ... were there printed for the first time."
+
+Early editions:
+Rowe 1709
+Pope 1715
+"Pope was the first to indicate the place of each new scene;
+as, for instance, Tempest, I. 1. 'On a ship at sea.' He also
+subdivided the scenes as given by the Folios and Rowe, making
+a fresh scene whenever a new character entered--an arrangement
+followed by Hanmer, Warburton, and Johnson. For convenience of
+reference to these editions, we have always recorded the
+commencement of Pope's scenes."
+Theobald 1733
+Hanmer ("Oxford edition") 1744
+Warburton 1747
+Johnson 1765
+Capell 1768; also Capell's annotated copy of F2
+Steevens 1773
+Malone 1790
+Reed 1803
+
+Later editions:
+Singer, Knight, Cornwall, Collier, Phelps, Halliwell, Dyce, Staunton
+
+Dryden:
+"The Tempest was altered by Dryden and D'Avenant, and published
+as The Tempest; or the Enchanted Island, in 1669. We mark the
+emendations derived from it: 'Dryden's version.'"
+
+Errors and inconsistencies:
+
+Re-enter Boatswain.
+[printed BOATSWAIN in small capitals]
+Enter Ariel.
+[printed "Ariel" in lower case]
+Where my son lies. When did you lose you daughter?
+[Text unchanged: error for "your"?]
+
+[Text-critical notes]
+
+I. 2. 135: to 't] om. Steevens (Farmer conj.).
+[Here and elsewhere in the volume, body text has unspaced "to't"
+while line notes have spaced "to 't".]
+I. 2. 202: o' the] of Pope.
+[Text unchanged: body text is capitalized "O' the"]
+II. 1. 88: Ay.] I. Ff. Ay? Pope.
+[Text unchanged: apparent error for italic I.]
+III. 3. 17: Prospero above]
+[Text unchanged: stage direction is after l. 19]
+
+[Endnotes]
+
+I: I. 1. 15. [I. 1. 16]
+V: 377, 378. [376-377]
+XVI: IV. 1. 146 [IV. 1. 147]
