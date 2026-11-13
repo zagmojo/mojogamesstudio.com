@@ -1,0 +1,7 @@
+How the Shelf Grows
+
+This is a sample book, a placeholder. No real book has been added yet.
+
+Real public-domain books are added as chapter files under web/books/ID/ in the project: one small plain-text file per chapter, named 01.txt, 02.txt and so on, each starting with the chapter's title on its first line.
+
+The web build copies that folder beside the game, so the site serves each chapter on its own, and a book is fetched one chapter at a time as it is read.

@@ -1,0 +1,39 @@
+{
+	"_comment": "The library world's books (user, 2026-11-13, GDD 344, 345; core/books.gd, ui/book_view.gd). Ships with the game: each book's title, author, year, its chapters (title and file under web/books/, fetched as it's read) and its title page and first page (readable offline). To add a book: put its chapters in web/books/ID/01.txt, 02.txt, ... (plain text, the chapter's title on the first line), and an entry here; only works whose public-domain status has been checked (GDD 344). The web build copies web/books beside the game and this file to books/catalog.json there (tools/export_web.ps1); the game reads the site's copy when it can, so the shelf can grow by uploading chapters and a newer catalog without a new build. Only the sample book is here so far: a clearly marked placeholder.",
+	"site": "https://mojogamesstudio.com/atlas/",
+	"cache_chapters": 4,
+	"timeout_s": 12.0,
+	"desc": "A book from the library's shelves. Use it to read it.",
+	"offline_line": "The rest of this book needs a connection.",
+	"_item_comment": "How a book looks as an item (parts as items.json's): c0 its cover's color, from colors unless the book names its own.",
+	"item": {
+		"hold_scale": 1.6,
+		"colors": ["#6a1e1e", "#2a4a6a", "#3a5a2a", "#6a4a2a", "#4a2a4a", "#8a6a3a"],
+		"parts": [
+			{"shape": "box", "at": [0, 0.022, 0], "size": [0.15, 0.044, 0.21], "color": "c0"},
+			{"shape": "box", "at": [0.004, 0.022, 0], "size": [0.14, 0.036, 0.2], "color": "#e8dcc0"}
+		]
+	},
+	"_hints_comment": "The hint books (worlds/interiors.json library books hint_kinds): their names and covers; the reading view writes their pages (ui/book_view.gd).",
+	"hints": {
+		"how_to": {"name": "a visitor's guide", "color": "#2f7a3e", "title": "A Visitor's Guide", "line": "Someone has copied out a page of advice:"},
+		"planet": {"name": "an atlas of far worlds", "color": "#2a3a6a", "title": "An Atlas of Far Worlds", "line": "One page is marked. Type its seed in the planet picker's seed box to go there."},
+		"map": {"name": "a hand-drawn map", "color": "#8a6a3a", "title": "A Map of These Halls", "line": "A careful map of the rooms round where it was shelved. The cross marks that shelf."}
+	},
+	"books": [
+		{
+			"id": "sample",
+			"title": "A Sample Book",
+			"author": "Atlas of Wanderworlds",
+			"year": 2026,
+			"placeholder": true,
+			"color": "#c8a050",
+			"title_page": "A SAMPLE BOOK\n\nA placeholder, not a real book.\n\nThe library's shelf of public-domain classics hasn't been added yet.",
+			"first_page": "This is a sample book, a placeholder. No real book has been added yet.",
+			"chapters": [
+				{"title": "How the Shelf Grows", "file": "sample/01.txt"},
+				{"title": "The Catalog", "file": "sample/02.txt"}
+			]
+		}
+	]
+}

@@ -1,0 +1,7 @@
+The Catalog
+
+Each book also needs an entry in books/catalog.json: its id, title, author and year, its chapters (title and file), and its title page and first page, which ship with the game so the book can be opened offline.
+
+Only works whose public-domain status has been checked go in, as the design asks.
+
+Once both are in place, the book turns up on the library's shelves like any other.
